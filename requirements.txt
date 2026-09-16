@@ -1,0 +1,34 @@
+# Core ML / model
+ultralytics>=8.0.0
+torch>=2.0.0
+
+# Data / numerics
+numpy
+pandas
+
+# Image / video handling
+opencv-python
+pillow
+
+# Plotting (used by src/evaluate.py and src/visualize.py)
+matplotlib
+
+# Backend API server (app.py)
+fastapi>=0.100.0
+uvicorn[standard]>=0.23.0
+python-multipart   # required by FastAPI for file uploads (UploadFile)
+pydantic>=2.0.0
+
+# ---------------------------------------------------------------------------
+# Install with:
+#     pip install -r requirements.txt
+#
+# NOTE ON GPU SUPPORT:
+# The default `torch` install above is CPU-only on most platforms.
+# If your central workstation has an NVIDIA GPU, install a CUDA-enabled
+# PyTorch build instead by following the selector at:
+#     https://pytorch.org/get-started/locally/
+# then re-run `pip install -r requirements.txt` (pip will skip torch
+# since it's already satisfied, or just leave torch out of this file
+# and install it separately first).
+# ---------------------------------------------------------------------------
