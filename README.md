@@ -6,19 +6,7 @@ This detector is one component of a larger safety pipeline: it identifies *what*
 
 
 ### OUR PROTOTYPE MODEL
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
 </style>
 <table border="1" class="dataframe">
   <thead>
@@ -797,6 +785,3 @@ After fine-tuning YOLOv8 on the ThroughTheFog dataset and generalizing the targe
 - The model was trained using the ThroughTheFog dataset, where classes such as bus and car were merged into a generalized Vehicle class. This was done to make the model capable of recognizing a wider range of vehicles, including HEMM and other heavy machinery. There was also an effort to identify and collect HEMM-specific and heavy-vehicle datasets to improve domain representation. However, due to the limited availability of suitable labelled data, the training data could not fully capture the diversity of vehicles encountered in an actual mining environment. Real, labelled data collected directly from the Bailadila mining region would likely provide the most significant improvement, as it would better represent the actual HEMM types, viewpoints, environmental conditions, and fog characteristics encountered during deployment.
 
 ## Thank you
-
-
-C:\Users\TANVI\Downloads\fog_mine_yolov8\fog_mine_yolov8\runs\yolov8n_fog_mine_full\weights\weights\best.pt
