@@ -3,7 +3,7 @@
 A CCTV-based object detector that flags **humans**, **vehicles**, and **obstacles** in mine environments, fine-tuned specifically to remain reliable in **fog and low-visibility conditions**. Built on YOLOv8n and fine-tuned from COCO-pretrained weights.
 
 
-This detector is one component of a larger safety pipeline: it identifies *what* and *where* , it in object or HEMM localization . Another part is weather classsifier model which detects weather severity [`VARGS_WEATHER_CLASSIFIER`](../VARGS_WEATHER_CLASSIFIER)
+This detector is one component of a larger safety pipeline: it identifies *what* and *where* , it in object or HEMM localization . Another part is weather classsifier model which detects weather severity [`VARGS_WEATHER_CLASSIFIER`](https://github.com/haze-helloworld/VARGS_WEATHER_CLASSIFIER)
 
 
 ### OUR PROTOTYPE MODEL
