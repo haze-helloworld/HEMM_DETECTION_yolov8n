@@ -8,7 +8,7 @@ This detector is one component of a larger safety pipeline: it identifies *what*
 
 ### OUR PROTOTYPE MODEL
 
-</style>
+
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -127,8 +127,7 @@ Unlike a per-camera "edge device" setup, **all camera feeds are streamed to one 
 ## DATASET 
 ### Seeing Through Fog (STF)
 
-The **Seeing Through Fog (STF)** dataset was introduced by Bijelic et al. in *"Seeing Through Fog Without Seeing Fog: Deep Multimodal Sensor Fusion in Unseen Adverse Weather"* (CVPR 2020). It is a multimodal adverse-weather object detection dataset containing real-world driving scenes and controlled fog-chamber recordings across **fog, rain, and snow** conditions. The dataset contains approximately **12,000 real-world samples and 1,500 controlled fog-chamber samples**, with multimodal data from RGB cameras, LiDAR, radar, gated NIR, and FIR sensors. :contentReference[oaicite:1]{index=1}
-
+The **Seeing Through Fog (STF)** dataset was introduced by Bijelic et al. in *"Seeing Through Fog Without Seeing Fog: Deep Multimodal Sensor Fusion in Unseen Adverse Weather"* (CVPR 2020). It is a multimodal adverse-weather object detection dataset containing real-world driving scenes and controlled fog-chamber recordings across **fog, rain, and snow** conditions. The dataset contains approximately **12,000 real-world samples and 1,500 controlled fog-chamber samples**, with multimodal data from RGB cameras, LiDAR, radar, gated NIR, and FIR sensors.
 The original object annotations contain the following classes:
 
 | Original Class |
@@ -139,7 +138,7 @@ The original object annotations contain the following classes:
 | Cyclist |
 | DontCare |
 
-The dataset also provides fallback object categories in cases where finer-grained classification is not possible, including **Vehicle** and **Obstacle**. :contentReference[oaicite:2]{index=2}
+The dataset also provides fallback object categories in cases where finer-grained classification is not possible, including **Vehicle** and **Obstacle**. :contentReference
 
 ### Class Conversion
 
