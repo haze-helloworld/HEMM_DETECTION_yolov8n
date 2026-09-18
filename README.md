@@ -116,17 +116,79 @@ This detector is one component of a larger safety pipeline: it identifies *what*
 
 ## Architecture
 
-```text
-   CCTV Camera 1 ─┐
-   CCTV Camera 2 ─┼──►  Central Workstation  ──►  human / vehicle / obstacle
-   CCTV Camera N ─┘     (this repo: app.py)        + confidence + box
-                             
-          
-```
-<img src = "assets/archi.png" size = 10 fit>
+
+<img src = "assets/archit.png" size = 10 fit>
 
 Unlike a per-camera "edge device" setup, **all camera feeds are streamed to one central workstation**, which runs this repo's `app.py` as a single backend service watching every feed concurrently (see `src/infer_stream.py`).
 
+
+
+## DATASET 
+### Seeing Through Fog (STF)
+
+The **Seeing Through Fog (STF)** dataset was introduced by Bijelic et al. in *"Seeing Through Fog Without Seeing Fog: Deep Multimodal Sensor Fusion in Unseen Adverse Weather"* (CVPR 2020). It is a multimodal adverse-weather object detection dataset containing real-world driving scenes and controlled fog-chamber recordings across **fog, rain, and snow** conditions. The dataset contains approximately **12,000 real-world samples and 1,500 controlled fog-chamber samples**, with multimodal data from RGB cameras, LiDAR, radar, gated NIR, and FIR sensors. :contentReference[oaicite:1]{index=1}
+
+The original object annotations contain the following classes:
+
+| Original Class |
+|---|
+| Pedestrian |
+| Truck |
+| Car |
+| Cyclist |
+| DontCare |
+
+The dataset also provides fallback object categories in cases where finer-grained classification is not possible, including **Vehicle** and **Obstacle**. :contentReference[oaicite:2]{index=2}
+
+### Class Conversion
+
+For our mine-deployment scenario, the available classes were consolidated into **three deployment-specific classes**:
+
+| New Class ID | Our Class | Original Classes Mapped |
+|---:|---|---|
+| 0 | Human | Pedestrian |
+| 1 | Vehicle | Car, Truck, Cyclist, Vehicle |
+| 2 | Obstacle | Obstacle |
+ 
+The `DontCare` class was not used as a target class.
+
+This conversion aligns the dataset taxonomy with our target deployment, where the detector needs to identify **HEMM vehicles, pedestrians, and other obstacles** under adverse visibility conditions.
+
+### Dataset Split
+
+| Split | Images | Labels |
+|---|---:|---:|
+| Train | 8,906 | 8,906 |
+| Validation | 2,544 | 2,544 |
+| Test | 1,273 | 1,273 |
+| **Total** | **12,723** | **12,723** |
+
+### Object Distribution
+
+| Split | Human | Vehicle | Obstacle |
+|---|---:|---:|---:|
+| Train | 28,442 | 43,032 | 1,651 |
+| Validation | 7,963 | 11,812 | 424 |
+| **Train + Validation** | **36,405** | **54,844** | **2,075** |
+
+### Annotation Quality
+
+```text
+TRAIN
+Human       : 28,442 objects
+Vehicle     : 43,032 objects
+Obstacle    : 1,651 objects
+Malformed   : 0
+Invalid IDs : 0
+
+VAL
+Human       : 7,963 objects
+Vehicle     : 11,812 objects
+Obstacle    : 424 objects
+Malformed   : 0
+Invalid IDs : 0
+
+```
 ## Repository structure
 
 ```text
